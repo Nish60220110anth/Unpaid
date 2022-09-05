@@ -1,40 +1,38 @@
 .home {
-    position: absolute;
-    width: inherit;
-    height: inherit;
-    display: inline-flex;
-    flex-direction: column;
-    justify-content: flex-start;
+	position: absolute;
+	width: inherit;
+	height: inherit;
+	display: inline-flex;
+	flex-direction: column;
+	justify-content: flex-start;
 }
 
-.contentPane{
-    display: block;
-    flex-grow: 10;
-    color: steelblue;
+.contentPane {
+	display: block;
+	flex-grow: 10;
+	color: steelblue;
 }
 
 .header {
-    flex-grow: 0.5;
-    display: inline-flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    background-color: #20232a;
+	flex-grow: 0.5;
+	display: inline-flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	background-color: #20232a;
 }
 
-
-
 .logo {
-    flex-grow: 0.5;
-    display: inline-block;
-    color: white;
+	flex-grow: 0.5;
+	display: inline-block;
+	color: white;
 }
 
 .menubar {
-    flex-grow: 3;
-    display: inline-flex;
+	flex-grow: 3;
+	display: inline-flex;
 }
 
-.profileicon{
-    flex-grow: 0.1;
-    display: inline-block;
+.profileicon {
+	flex-grow: 0.1;
+	display: inline-block;
 }
