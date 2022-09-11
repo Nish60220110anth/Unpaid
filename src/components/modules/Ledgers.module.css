@@ -26,3 +26,7 @@ table {
     background-color: #131f13;
   }
   
+  .tablebtndiv {
+    display: flex;
+    align-items: center;
+  }

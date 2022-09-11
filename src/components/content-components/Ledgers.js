@@ -1,5 +1,5 @@
 import React from 'react'
-import { useMemo } from 'react'
+import { useMemo,useState,useEffect } from 'react'
 import Style from "./../modules/Ledgers.module.css"
 import { Button, ButtonGroup, OverlayTrigger, Table, Tooltip } from "react-bootstrap"
 import MOCK_DATA from "./../assets/MOCK_DATA.json"
@@ -8,19 +8,23 @@ import { useFilters, useGlobalFilter, usePagination, useTable, useSortBy } from 
 import { useSticky } from 'react-table-sticky'
 import { Styles } from "./../utils/TableStyles"
 
-import { ColumnFilter } from "./../utils/ColumnFilter"
 import { GlobalFilter } from "./../utils/GlobalFilter"
+import axios from 'axios'
 
 export function Ledgers() {
   const columns = useMemo(() => COLUMNS, [])
   const data = useMemo(() => MOCK_DATA, [])
 
-  const defaultColumn = React.useMemo(
-    () => ({
-      Filter: ColumnFilter
-    }),
-    []
-  )
+  async function postData() {
+    console.log("Post Data Test function called");
+
+    try {
+     await axios.post("http://localhost:3001/postdata","some data from frontend");
+    }catch(error) {
+      console.log(error)
+    }
+  }
+
 
   const {
     getTableProps,
@@ -52,6 +56,8 @@ export function Ledgers() {
   )
 
   const { pageIndex, pageSize, globalFilter } = state
+
+  var testVal,setTestVal = useState({});
 
   return (
     <>
@@ -89,7 +95,7 @@ export function Ledgers() {
               })}
             </tbody>
           </Table>
-          <div>
+          <div className={Style.tablebtndiv}>
             <ButtonGroup>
               <OverlayTrigger key='top'
                 placement='top'
@@ -133,7 +139,7 @@ export function Ledgers() {
               Page{' '}
               <strong>
                 {pageIndex + 1} of {pageOptions.length}
-              </strong>{' '}
+              </strong>
             </span>
             <span>
               | Go to page:{' '}
@@ -150,7 +156,7 @@ export function Ledgers() {
             <select
               value={pageSize}
               onChange={e => setPageSize(Number(e.target.value))}>
-              {[10, 15, 20, 30, 50].map(pageSize => (
+              {[10, 15, 20, 30, 50, 100].map(pageSize => (
                 <option key={pageSize} value={pageSize}>
                   Show {pageSize}
                 </option>
@@ -161,8 +167,7 @@ export function Ledgers() {
         <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
         <div>
           <OverlayTrigger
-            key='top'
-            placement='top'
+            placement='right'
             overlay={
               <Tooltip>
                 Insert new data row
@@ -172,6 +177,11 @@ export function Ledgers() {
           </OverlayTrigger>
         </div>
       </div>
+
+      <Button variant='primary' onClick={(event)=>{
+        console.log("Add Data Clicked");
+        postData();
+      }}>Sample Add Data</Button>
     </>
   )
 }
