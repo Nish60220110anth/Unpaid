@@ -1,0 +1,9 @@
+.container {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+}
+
+.sample {
+    color: steelblue;
+}
