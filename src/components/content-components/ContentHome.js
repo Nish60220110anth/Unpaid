@@ -1,37 +1,72 @@
-import React from "react";
-import Person1 from "./../assets/img_avatar.png";
+import React from 'react'
 
-import Style from "./../modules/ContentHome.module.css";
+import Style from "./../modules/ContentHome.module.css"
+import {Carousel} from "react-bootstrap"
 
 export function ContentHome() {
   return (
-    <div>
-      <div className={Style.container}>
-        <div className="profile">
-          <img src={Person1} alt="Avatar" className={Style.image} />
-          <div className={Style.overlay1}>Nishanth</div>
-        </div>
+    <div className={Style.container}>
+      <div class={Style.stage}>
+        <div class={Style.layer}></div>
+        <div class={Style.layer}></div>
+        <div class={Style.layer}></div>
+        <div class={Style.layer}></div>
+        <div class={Style.layer}></div>
+        <div class={Style.layer}></div>
+        <div class={Style.layer}></div>
+        <div class={Style.layer}></div>
+        <div class={Style.layer}></div>
+        <div class={Style.layer}></div>
+        <div class={Style.layer}></div>
+        <div class={Style.layer}></div>
+        <div class={Style.layer}></div>
+        <div class={Style.layer}></div>
+        <div class={Style.layer}></div>
+        <div class={Style.layer}></div>
       </div>
 
-      <div className={Style.container}>
-        <img src={Person1} alt="Avatar" className={Style.image} />
-        <div className={Style.overlay2}>Devansh</div>
+      <div className={Style.slide}>
+      <Carousel>
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src="holder.js/800x400?text=First slide&bg=373940"
+          alt="First slide"
+        />
+        <Carousel.Caption>
+          <h3>First slide label</h3>
+          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src="holder.js/800x400?text=Second slide&bg=282c34"
+          alt="Second slide"
+        />
+
+        <Carousel.Caption>
+          <h3>Second slide label</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src="holder.js/800x400?text=Third slide&bg=20232a"
+          alt="Third slide"
+        />
+
+        <Carousel.Caption>
+          <h3>Third slide label</h3>
+          <p>
+            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+          </p>
+        </Carousel.Caption>
+      </Carousel.Item>
+    </Carousel>
       </div>
 
-      <div className={Style.container}>
-        <img src={Person1} alt="Avatar" className={Style.image} />
-        <div className={Style.overlay3}>Saranya</div>
-      </div>
-
-      <div className={Style.container}>
-        <img src={Person1} alt="Avatar" className={Style.image} />
-        <div className={Style.overlay4}>Siddanth</div>
-      </div>
-
-      <div className={Style.container}>
-        <img src={Person1} alt="Avatar" className={Style.image} />
-        <div className={Style.overlay5}>Lithesh</div>
-      </div>
     </div>
-  );
+  )
 }

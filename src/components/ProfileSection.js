@@ -3,12 +3,11 @@ import { Link, NavLink } from 'react-router-dom'
 
 import Style from "./modules/ProfileSection.module.css"
 
-export function ProfileSection() {
-
+export function ProfileSection(props) {
 
   return (
 
-    <div className='profile'>
+    <div className={Style.profile}>
 
       <div id="navsidepanel" className={Style.overlay}>
         <a href="javascript:void(0)" className={Style.closebtn} onClick={
@@ -23,8 +22,8 @@ export function ProfileSection() {
         </div>
       </div>
 
-      <div className='profile'>
-        <button className='profileopenbut' onClick={() => {
+      <div className={Style.profileicon}>
+        <button className={Style.profileopenbut} onClick={() => {
           document.getElementById("navsidepanel").style.width = "100%";
         }}>
           Profile
