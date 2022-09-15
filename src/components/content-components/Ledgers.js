@@ -57,7 +57,6 @@ export function Ledgers() {
 
   const { pageIndex, pageSize, globalFilter } = state
 
-  var testVal,setTestVal = useState({});
 
   return (
     <>
@@ -73,8 +72,8 @@ export function Ledgers() {
                       <span>
                         {column.isSorted
                           ? column.isSortedDesc
-                            ? ' 🔽'
-                            : ' 🔼'
+                            ? '🔽'
+                            : '🔼'
                           : ''}
                       </span>
                     </th>
@@ -173,15 +172,14 @@ export function Ledgers() {
                 Insert new data row
               </Tooltip>
             }>
-            <Button variant='secondary'>Add Data</Button>
+            <Button variant='primary' onClick={(event)=>{
+        console.log("Add Data Clicked");
+        postData();
+      }}>Add Data</Button>
           </OverlayTrigger>
         </div>
       </div>
 
-      <Button variant='primary' onClick={(event)=>{
-        console.log("Add Data Clicked");
-        postData();
-      }}>Sample Add Data</Button>
     </>
   )
 }

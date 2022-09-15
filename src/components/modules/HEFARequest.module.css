@@ -1,11 +1,33 @@
 .container {
     position: absolute;
-    display: flex;
-    width: inherit;
-    height: inherit;
+    width: 100%;
+    height: 100%;
+    display: block;
     flex-direction: column;
     align-items: center;
 }
+
+body{
+    background-image: #20232a;
+}
+
+
+.field:focus{
+    width: 300px;
+}
+
+.widget{
+    column-span: 100px;
+}
+
+.forForm{
+    position: relative;
+    width: 50px;
+}
+
+.smaller {
+    padding: 7px 5px;
+  }
 
 .sample {
     color: steelblue;

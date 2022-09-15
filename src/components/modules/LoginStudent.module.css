@@ -1,15 +1,11 @@
-.logindiv {
+/* .logindiv {
   position: relative;
   width: fit-content;
-
-  top: 30%;
 }
 
 .loginbck {
   background-image: linear-gradient(steelblue,rgb(5, 102, 181));
   position: absolute;
-  width: 100vw;
-  height: 100vh;
 
   display: flex;
   flex-direction: column;
@@ -30,7 +26,7 @@
   align-items: center;
   margin: 5px;
 
-}
+} */
 
 .circle{
   position: absolute;

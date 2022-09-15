@@ -10,7 +10,7 @@ export function ProfileSection(props) {
     <div className={Style.profile}>
 
       <div id="navsidepanel" className={Style.overlay}>
-        <a href="javascript:void(0)" className={Style.closebtn} onClick={
+        <a href="#" className={Style.closebtn} onClick={
           () => {
             document.getElementById("navsidepanel").style.width = "0%";
           }

@@ -8,6 +8,7 @@ import { Confirmation } from "./components/Confirmation"
 import { Login } from "./components/Login"
 import {LoginStudent} from "./components/LoginStudent"
 import {LoginFaculty} from "./components/LoginFaculty"
+import {NoOpt} from "./components/NoOpt"
 import { PageNotFound } from "./components/PageNotFound"
 import { Profile } from "./components/Profile"
 
@@ -82,6 +83,7 @@ root.render(
       <Route path='/confirmation/:details' element={<Confirmation />} />
 
       <Route path='/login' element={<Login />}>
+        <Route index element={<NoOpt />} />
         <Route path='student' element={<LoginStudent />}/>
         <Route path='faculty' element={<LoginFaculty />}/>
       </Route>
