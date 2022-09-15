@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 /* input[type=text], input[type=password] {
+=======
+input[type=text], input[type=password] {
+>>>>>>> 413e521a922196d85df8ce784432b3027ad86fbe
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -9,6 +13,10 @@
     box-sizing: border-box;
   }
   
+<<<<<<< HEAD
+=======
+  /* Set a style for all buttons */
+>>>>>>> 413e521a922196d85df8ce784432b3027ad86fbe
   button {
     background-color: #20232a;
     color: white;
@@ -26,12 +34,20 @@
     opacity: 0.8;
   }
   
+<<<<<<< HEAD
+=======
+  /* Extra styles for the cancel button */
+>>>>>>> 413e521a922196d85df8ce784432b3027ad86fbe
   .cancelbtn {
     width: auto;
     padding: 10px 18px;
     background-color: #f44336;
   }
   
+<<<<<<< HEAD
+=======
+  /* Center the image and position the close button */
+>>>>>>> 413e521a922196d85df8ce784432b3027ad86fbe
   .imgcontainer {
     text-align: center;
     margin: 24px 0 12px 0;
@@ -52,6 +68,7 @@
     padding-top: 16px;
   }
   
+<<<<<<< HEAD
 
   .modal {
     position: fixed; 
@@ -73,6 +90,31 @@
     width: 80%; 
   }
 
+=======
+  /* The Modal (background) */
+  .modal {
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+  }
+  
+  /* Modal Content/Box */
+  .modalcontent {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+  }
+  
+  /* The Close Button (x) */
+>>>>>>> 413e521a922196d85df8ce784432b3027ad86fbe
   .close {
     position: absolute;
     right: 25px;
@@ -87,7 +129,12 @@
     color: red;
     cursor: pointer;
   }
+<<<<<<< HEAD
 
+=======
+  
+  /* Add Zoom Animation */
+>>>>>>> 413e521a922196d85df8ce784432b3027ad86fbe
   .animate {
     -webkit-animation: animatezoom 0.6s;
     animation: animatezoom 0.6s
@@ -103,6 +150,10 @@
     to {transform: scale(1)}
   }
   
+<<<<<<< HEAD
+=======
+  /* Change styles for span and cancel button on extra small screens */
+>>>>>>> 413e521a922196d85df8ce784432b3027ad86fbe
   @media screen and (max-width: 300px) {
     span.psw {
        display: block;
@@ -111,4 +162,8 @@
     .cancelbtn {
        width: 100%;
     }
+<<<<<<< HEAD
   } */
+=======
+  }
+>>>>>>> 413e521a922196d85df8ce784432b3027ad86fbe
