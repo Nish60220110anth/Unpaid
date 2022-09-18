@@ -13,7 +13,7 @@ import {
 	PieChart,
 	Pie,
 } from "recharts";
-import "./../modules/BudgetGen.module.css";
+import Style from './../modules/BudgetGen.module.css';
 
 import { Row, Button } from "reactstrap";
 import { InputRow } from "../rows/InputRow";
@@ -214,16 +214,27 @@ class BudgetCalculator extends Component {
 	render() {
 		return (
 			<div className="form-vertical">
-				<body>
+				<br/>
+				<body style={{'text-align':'center','align-items':'center','justify-content':'center'}}>
 					<div className="form-horizontal">
-						<h1 id="title">ANNUAL BUDGET CALCULATOR</h1>
-						
+						<h1 id="title">
+							<strong>
+								ANNUAL BUDGET CALCULATOR
+								</strong>
+						</h1>	
 					</div>
 				</body>
+				<br/>
+				
 				<table>
-					<tbody>
+					<thead>
 						<HeaderA></HeaderA>
+					</thead>
+					<thead>
 						<HeaderB></HeaderB>
+					</thead>
+						
+					<tbody>
 						<InputRow
 							dProp={Math.round(
 								(this.state.category1[1] / this.columnSum("C")) * 100

@@ -103,6 +103,10 @@ export function BalanceSheetGen() {
 							cellpadding="5 "
 						>
 							<thead>
+
+							<th className="s0" dir="ltr" colspan="8">
+										Balance sheet (in Cr.)
+								</th>
 								<tr>
 									<th className="row-header freezebar-origin-ltr"></th>
 									<th
@@ -155,9 +159,7 @@ export function BalanceSheetGen() {
 										</div>
 									</th>
 									<td></td>
-									<td className="s0" dir="ltr" colspan="4">
-										Balance sheet (in Cr.)
-									</td>
+									
 									<td className="s1" dir="ltr"></td>
 									<td className="s1" dir="ltr"></td>
 									<td className="s1" dir="ltr"></td>

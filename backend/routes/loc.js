@@ -8,6 +8,7 @@ const express = require("express");
 const cors = require("cors");
 const bodyparser = require("body-parser");
 const htmlpdf = require("html-pdf");
+const path = require("path")
 
 // LocRouter
 const locRouter = express.Router();
@@ -47,16 +48,18 @@ locRouter.post("/create", (req, res) => {
 
 // He gives the pdf which is created by the createpdf
 locRouter.get("/get", (_req, res) => {
-	const dirpath = __dirname;
-	var path = "",
-		lastIndex = 0;
-	for (var i = 0; i < dirpath.length; i++) {
-		if (dirpath[i] == "\\") {
-			lastIndex = i;
-		}
-	}
-	path = dirpath.substring(0, lastIndex);
-	res.sendFile(`${path}/${gen_file_name}_${file_count}.pdf`);
+	// const dirpath = __dirname;
+	// var path = "",
+	// 	lastIndex = 0;
+	// for (var i = 0; i < dirpath.length; i++) {
+	// 	if (dirpath[i] == "\\") {
+	// 		lastIndex = i;
+	
+	// 	}
+	// }
+	// path = dirpath.substring(0, lastIndex);
+	var curr_path = path.normalize(`${__dirname}\\..\\`);
+	res.sendFile(`${curr_path}/${gen_file_name}_${file_count}.pdf`);
 	file_count++;
 });
 

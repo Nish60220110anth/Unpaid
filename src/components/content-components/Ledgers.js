@@ -25,6 +25,9 @@ export function Ledgers() {
     }
   }
 
+  const style1={
+    "margin":"30px"
+  }
 
   const {
     getTableProps,
@@ -95,7 +98,7 @@ export function Ledgers() {
             </tbody>
           </Table>
           <div className={Style.tablebtndiv}>
-            <ButtonGroup>
+            <ButtonGroup className={Style.btngrp}>
               <OverlayTrigger key='top'
                 placement='top'
                 overlay={
@@ -133,7 +136,7 @@ export function Ledgers() {
                 <Button variant='secondary' onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>{'Last'}</Button>
               </OverlayTrigger>
             </ButtonGroup>
-
+              <span>
             <span>
               Page{' '}
               <strong>
@@ -149,9 +152,9 @@ export function Ledgers() {
                   const pageNumber = e.target.value ? Number(e.target.value) - 1 : 0
                   gotoPage(pageNumber)
                 }}
-                style={{ width: '50px' }}
               />
             </span>{' '}
+            <span>
             <select
               value={pageSize}
               onChange={e => setPageSize(Number(e.target.value))}>
@@ -161,6 +164,8 @@ export function Ledgers() {
                 </option>
               ))}
             </select>
+            </span>
+            </span>
           </div>
         </Styles>
         <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />

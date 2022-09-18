@@ -40,6 +40,7 @@ import BudgetCalculator from "./components/content-components/Budget";
 import Overview from "./components/Payroll/Payroll_overview/overview";
 import { UserList } from "./components/Payroll/Payroll_side_comp/UserList";
 import User from "./components/Payroll/Payroll_side_comp/User";
+import Dashboard from "./components/Payroll/Payroll_dash";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -67,7 +68,7 @@ root.render(
             <Route index element={<Overview />}/>
             <Route path="overview" element={<Overview />}/>
             <Route path="members" element={<UserList/>}/>
-            <Route path="faculty" element={<UserList/>}/>
+            <Route path="faculty" element={<Dashboard/>}/>
             <Route path="staff" element={<UserList/>}/>
             <Route path="adhoc" element={<UserList/>}/>
             <Route path="members/:userId" element={<User/>}/>
