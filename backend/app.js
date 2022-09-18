@@ -5,6 +5,7 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var cors = require("cors");
 
+const challanRouter = require("./routes/challan");
 const indexRouter = require("./routes/index");
 const authRouter = require("./routes/authenticate");
 const bsRouter = require("./routes/bs");
@@ -37,6 +38,7 @@ app.use("/ins", insRouter); // file
 app.use("/loc", locRouter); // file
 app.use("/mis", misRouter); // file
 app.use("/annb", annBudRouter); //file
+app.use("/challan",challanRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
