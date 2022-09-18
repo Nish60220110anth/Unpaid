@@ -70,10 +70,10 @@ export function HEFARequest() {
                       <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Container fluid>
                           <Row className='justify-content-md-start'>
-                            <Col md="50">
+                            <Row md="30">
                               <Form.Label><h3>Email</h3></Form.Label>
-                            </Col>
-                            <Col md="30">
+                            </Row>
+                            <Row md="30">
                               <InputGroup>
                                 <OverlayTrigger
                                   placement='top'
@@ -110,7 +110,7 @@ export function HEFARequest() {
                                 <Form.Control.Feedback type='valid' >Valid Email</Form.Control.Feedback>
                                 <Form.Control.Feedback type='invalid'>{formik.errors.email}</Form.Control.Feedback>
                               </InputGroup>
-                            </Col>
+                            </Row>
                           </Row>
                         </Container>
                       </Form.Group>
