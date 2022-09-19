@@ -28,7 +28,7 @@ export function HEFARequest() {
 	const HEFA_ID_Max = 100000;
 	const PASS_MIN = 8;
 	const PASS_MAX = 20;
-	const AMOUNT_MAX = 2000000;
+	const AMOUNT_MAX = 200;
 	const AMOUNT_MIN = 10;
 	var myformik;
 
@@ -51,7 +51,8 @@ export function HEFARequest() {
 		amount: Yup.number()
 			.required("Amount is required")
 			.typeError("Amount must be number")
-			.max(AMOUNT_MAX, `Exceeded Maximum amount ${AMOUNT_MAX}`),
+			.max(AMOUNT_MAX, `What your going to do with ${AMOUNT_MAX} lakhs money ?`)
+			.min(AMOUNT_MIN, "In my childhood , i had more money than you - haha"),
 	});
 
 	const initialValues = {
