@@ -1,3 +1,4 @@
+/*HEFA*/
 import React, { useState } from 'react'
 import Style from "./../modules/HEFARequest.module.css"
 import {
@@ -52,6 +53,7 @@ export function HEFARequest() {
 
   return (
     <div className={Style.container}>
+      <br/>
       <Container>
         <Row>
           <Col lg='7'>
@@ -69,12 +71,14 @@ export function HEFARequest() {
 
                       <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Container fluid>
-                          <Row className='justify-content-md-start'>
-                            <Col md="50">
+                          {/* <Row className='justify-content-md-start'> */}
+                            <Row>
                               <Form.Label><h3>Email</h3></Form.Label>
-                            </Col>
-                            <Col md="30">
+                            </Row>
+                            <Row>
                               <InputGroup>
+                            <Col>
+                            <div style={{'margin-top':'12px', 'margin-right':'10px'}}>
                                 <OverlayTrigger
                                   placement='top'
                                   trigger='focus'
@@ -89,10 +93,15 @@ export function HEFARequest() {
                                     isValid={!errors.email && touched.email}
                                     isInvalid={errors.email && touched.email}
                                   />
-
                                   {/* To DO Create Validation */}
 
                                 </OverlayTrigger>
+                                    <Form.Control.Feedback type='valid' >Valid Email</Form.Control.Feedback>
+                                    <Form.Control.Feedback type='invalid'>{formik.errors.email}</Form.Control.Feedback>
+                                </div>
+                                </Col>
+                                <Col xs lg="2">
+                            <div style={{'padding-top':'5px','width':'90px'}}>
                                 <OverlayTrigger trigger='click'
                                   placement='right'
                                   overlay={
@@ -107,23 +116,25 @@ export function HEFARequest() {
                                     More
                                   </Button>
                                 </OverlayTrigger>
-                                <Form.Control.Feedback type='valid' >Valid Email</Form.Control.Feedback>
-                                <Form.Control.Feedback type='invalid'>{formik.errors.email}</Form.Control.Feedback>
+                                </div>
+                                </Col>
                               </InputGroup>
-                            </Col>
-                          </Row>
+                            </Row>
+                          {/* </Row> */}
                         </Container>
                       </Form.Group>
 
 
                       <Form.Group className="mb-3" controlId="formid">
                         <Container fluid>
-                          <Row className='justify-content-md-start'>
-                            <Col md="50">
+                          {/* <Row className='justify-content-md-start'> */}
+                            <Row>
                               <Form.Label><h3>HEFA Id</h3></Form.Label>
-                            </Col>
-                            <Col md="30">
+                            </Row>
+                            <Row>
                               <InputGroup>
+                              <Col>
+                            <div style={{'padding-top':'0px', 'margin-right':'10px'}}>
                                 <OverlayTrigger
                                   placement='top'
                                   trigger='focus'
@@ -138,6 +149,13 @@ export function HEFARequest() {
                                     isValid={!errors.hefaid && touched.hefaid}
                                     isInvalid={errors.hefaid && touched.hefaid} />
                                 </OverlayTrigger>
+                                    <Form.Control.Feedback type='valid' >Valid HEFA Id</Form.Control.Feedback>
+                                    <Form.Control.Feedback type='invalid'>{formik.errors.hefaid}</Form.Control.Feedback>
+                                </div>
+                                </Col>
+                                <Col xs lg="2">
+                            <div style={{'padding-top':'5px','width':'90px'}}>
+
                                 <OverlayTrigger trigger='click'
                                   placement='right'
                                   overlay={
@@ -152,22 +170,23 @@ export function HEFARequest() {
                                     More
                                   </Button>
                                 </OverlayTrigger>
-                                <Form.Control.Feedback type='valid' >Valid HEFA Id</Form.Control.Feedback>
-                                <Form.Control.Feedback type='invalid'>{formik.errors.hefaid}</Form.Control.Feedback>
+                                </div>
+                                </Col>
                               </InputGroup>
-                            </Col>
-                          </Row>
+                              </Row>
                         </Container>
                       </Form.Group>
 
                       <Form.Group className="mb-3" controlId="formpassl">
                         <Container fluid>
-                          <Row className='justify-content-md-start'>
-                            <Col md="50">
+                          {/* <Row className='justify-content-md-start'> */}
+                            <Row>
                               <Form.Label><h3>Password</h3></Form.Label>
-                            </Col>
-                            <Col md="30">
+                            </Row>
+                            <Row>
                               <InputGroup>
+                              <Col>
+                            <div style={{'padding-top':'0px', 'margin-right':'10px'}}>
                                 <OverlayTrigger
                                   placement='top'
                                   trigger='focus'
@@ -182,6 +201,12 @@ export function HEFARequest() {
                                     isValid={!errors.password && touched.password}
                                     isInvalid={errors.password && touched.password} />
                                 </OverlayTrigger>
+                                    <Form.Control.Feedback type='valid' >Valid Password</Form.Control.Feedback>
+                                    <Form.Control.Feedback type='invalid'>{formik.errors.password}</Form.Control.Feedback>
+                                </div>
+                                </Col>
+                                <Col xs lg="2">
+                            <div style={{'padding-top':'5px','width':'90px'}}>
                                 <OverlayTrigger trigger='click'
                                   placement='right'
                                   overlay={
@@ -196,25 +221,27 @@ export function HEFARequest() {
                                     More
                                   </Button>
                                 </OverlayTrigger>
-                                <Form.Control.Feedback type='valid' >Valid Password</Form.Control.Feedback>
-                                <Form.Control.Feedback type='invalid'>{formik.errors.password}</Form.Control.Feedback>
+                                </div>
+                                </Col>
                               </InputGroup>
-                            </Col>
-                          </Row>
+                            </Row>
+                          {/* </Row> */}
                         </Container>
                       </Form.Group>
 
                       <Form.Group>
                         <Container fluid>
-                          <Row className='justify-content-md-start'>
-                            <Col md="50">
+                          {/* <Row className='justify-content-md-start'> */}
+                            <Row>
                               <Form.Label><h3>
                                 Amount
                               </h3>
                               </Form.Label>
-                            </Col>
-                            <Col md="30">
+                            </Row>
+                            <Row>
                               <InputGroup>
+                              <Col>
+                            <div style={{'padding-top':'0px', 'margin-right':'10px'}}>
                                 <OverlayTrigger
                                   placement='top'
                                   trigger='focus'
@@ -229,6 +256,12 @@ export function HEFARequest() {
                                     isValid={!errors.amount && touched.amount}
                                     isInvalid={errors.amount && touched.amount} />
                                 </OverlayTrigger>
+                                    <Form.Control.Feedback type='valid' >Valid Amount</Form.Control.Feedback>
+                                    <Form.Control.Feedback type='invalid'>{formik.errors.amount}</Form.Control.Feedback>
+                                </div>
+                                </Col>
+                                <Col xs lg="2">
+                            <div style={{'padding-top':'5px','width':'90px'}}>
                                 <OverlayTrigger trigger='click'
                                   placement='right'
                                   overlay={
@@ -243,34 +276,35 @@ export function HEFARequest() {
                                     More
                                   </Button>
                                 </OverlayTrigger>
-                                <Form.Control.Feedback type='valid' >Valid Amount</Form.Control.Feedback>
-                                <Form.Control.Feedback type='invalid'>{formik.errors.amount}</Form.Control.Feedback>
+                                  </div>
+                                  </Col>
                               </InputGroup>
-                            </Col>
-                          </Row>
+                              </Row>
+                          {/* </Row> */}
                         </Container>
                       </Form.Group>
 
 
-                      <Form.Group className="mb-3" controlId='formremme'>
+                      {/* <Form.Group className="mb-3" controlId='formremme'>
                         <Container fluid>
                           <Row className='justify-content-md-evenly'>
                             <Col md="50">
-                              <Form.Check type="checkbox" label="Remember me" />
+                              <Form.Check type="checkbox" label="Remember me" style={{'':''}}/>
                             </Col>
                           </Row>
                         </Container>
-                      </Form.Group>
-
+                      </Form.Group> */}
+                      <div style={{'margin':'20px 10px','width':'120px'}}>
                       <Button variant="primary" type="button" onClick={(event)=>{
                         if(formik.isValid){
                           handleShow();
                         }else{
 
                         }
-                      }}>
+                      }} >
                         Request
                       </Button>
+                      </div>
                     </Form>
                   )
 
