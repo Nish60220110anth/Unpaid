@@ -1,9 +1,23 @@
 import { useFormik } from "formik";
 import React, { useState } from "react";
-
+import { Button, ButtonGroup, OverlayTrigger, Tooltip } from "react-bootstrap";
 import Style from "../modules/BalanceSheetGen.module.css";
 
+import axios from "axios";
+import "jspdf-autotable";
+import { saveAs } from "file-saver";
+
+const FILE_NAME = "BalanceSheet";
+const PORT = 4000;
+
+// const routerRouteDB = "data/loc";
+const routerRoutePDF = "util/pdf/balanceSheet";
+
 export function BalanceSheetGen() {
+	const saveToDb = (event) => {
+		console.log("Added to DB");
+	};
+
 	const formik = useFormik({
 		initialValues: {
 			sc20: 0.0,
@@ -72,11 +86,26 @@ export function BalanceSheetGen() {
 			tca20: 0.0,
 			oca19: 0.0,
 			oca20: 0.0,
-			ta19: 0.0,
-			ta20: 0.0,
-			diff: 0.0,
+			toa19: 0.0,
+			toa20: 0.0,
 		},
 	});
+	const year = 2021;
+
+	const createAndDownloadPdf = (event) => {
+		axios
+			.post(`http://localhost:${PORT}/${routerRoutePDF}/${year}`, formik.values)
+			.then(() => {
+				axios
+					.get(`http://localhost:${PORT}/${routerRoutePDF}/${year}`, {
+						responseType: "blob",
+					})
+					.then((res) => {
+						const pdfblob = new Blob([res.data], { type: "application/pdf" });
+						saveAs(pdfblob, `${FILE_NAME}_${year}.pdf`);
+					});
+			});
+	};
 
 	return (
 		<div>
@@ -103,9 +132,8 @@ export function BalanceSheetGen() {
 							cellpadding="5 "
 						>
 							<thead>
-
-							<th className="s0" dir="ltr" colspan="8">
-										Balance sheet (in Cr.)
+								<th className="s0" dir="ltr" colspan="8">
+									Balance sheet (in Cr.)
 								</th>
 								<tr>
 									<th className="row-header freezebar-origin-ltr"></th>
@@ -159,7 +187,7 @@ export function BalanceSheetGen() {
 										</div>
 									</th>
 									<td></td>
-									
+
 									<td className="s1" dir="ltr"></td>
 									<td className="s1" dir="ltr"></td>
 									<td className="s1" dir="ltr"></td>
@@ -354,7 +382,7 @@ export function BalanceSheetGen() {
 											step="0.01"
 											className="ia20"
 											name="ia20"
-											value={formik.values.tsc20_ia20}
+											value={formik.values.ia20}
 											onChange={formik.handleChange}
 										/>
 									</td>
@@ -363,7 +391,7 @@ export function BalanceSheetGen() {
 											type="number"
 											step="0.01"
 											className="ia19"
-											name="1a19"
+											name="ia19"
 											value={formik.values.ia19}
 											onChange={formik.handleChange}
 										/>
@@ -397,7 +425,14 @@ export function BalanceSheetGen() {
 										/>
 									</td>
 									<td className="s5" dir="ltr">
-										<input type="number" step="0.01" className="rf19" />
+										<input
+											type="number"
+											step="0.01"
+											className="rf19"
+											name="rf19"
+											value={formik.values.rf19}
+											onChange={formik.handleChange}
+										/>
 									</td>
 									<td></td>
 									<td className="s1" dir="ltr">
@@ -508,7 +543,7 @@ export function BalanceSheetGen() {
 											type="number"
 											step="0.01"
 											className="tsf20"
-											id="liasum201"
+											id="tsf20"
 											name="tsf20"
 											value={formik.values.tsf20}
 											onChange={formik.handleChange}
@@ -519,7 +554,7 @@ export function BalanceSheetGen() {
 											type="number"
 											step="0.01"
 											className="tsf19"
-											id="liasum191"
+											id="tsf19"
 											name="tsf19"
 											value={formik.values.tsf19}
 											onChange={formik.handleChange}
@@ -534,7 +569,7 @@ export function BalanceSheetGen() {
 											type="number"
 											step="0.01"
 											className="fa20"
-											id="asssum201"
+											id="fa20"
 											name="fa20"
 											value={formik.values.fa20}
 											onChange={formik.handleChange}
@@ -545,7 +580,7 @@ export function BalanceSheetGen() {
 											type="number"
 											step="0.01"
 											className="fa19"
-											id="asssum191"
+											id="fa19"
 											name="fa19"
 											value={formik.values.fa19}
 											onChange={formik.handleChange}
@@ -1333,150 +1368,23 @@ export function BalanceSheetGen() {
 									<td className="s5" dir="ltr">
 										<input
 											type="number"
-											className="ta20"
-											name="ta20"
-											value={formik.values.ta20}
+											className="toa20"
+											name="toa20"
+											value={formik.values.toa20}
 											onChange={formik.handleChange}
 										/>
 									</td>
 									<td className="s5" dir="ltr">
 										<input
 											type="number"
-											className="ta19"
-											name="ta19"
-											value={formik.values.ta19}
+											className="toa19"
+											name="toa19"
+											value={formik.values.toa19}
 											onChange={formik.handleChange}
 										/>
 									</td>
 									<td className="s1" dir="ltr"></td>
 									<td></td>
-								</tr>
-								<tr /*style="height: 20px"*/>
-									<th
-										id="126933298R24"
-										//style="height: 20px;"
-										className="row-headers-background"
-									>
-										<div
-											className="row-header-wrapper" /*style="line-height: 20px"*/
-										>
-											25
-										</div>
-									</th>
-									<td className="s1" dir="ltr"></td>
-									<td className="s1"></td>
-									<td className="s1"></td>
-									<td className="s1"></td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td className="s1"></td>
-								</tr>
-								<tr /*style="height: 20px"*/>
-									<th
-										id="126933298R25"
-										//style="height: 20px;"
-										className="row-headers-background"
-									>
-										<div
-											className="row-header-wrapper" /*style="line-height: 20px"*/
-										>
-											26
-										</div>
-									</th>
-									<td className="s1" dir="ltr"></td>
-									<td></td>
-									<td></td>
-									<td></td>
-								</tr>
-								<tr /*style="height: 20px"*/>
-									<th
-										id="126933298R26"
-										//style="height: 20px;"
-										className="row-headers-background"
-									>
-										<div
-											className="row-header-wrapper" /*style="line-height: 20px"*/
-										>
-											27
-										</div>
-									</th>
-									<td className="s1"></td>
-									<td className="s1"></td>
-									<td className="s1"></td>
-									<td className="s1"></td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td className="s1"></td>
-								</tr>
-								<tr /*style="height: 20px"*/>
-									<th
-										id="126933298R27"
-										//style="height: 20px;"
-										className="row-headers-background"
-									>
-										<div
-											className="row-header-wrapper" /*style="line-height: 20px"*/
-										>
-											28
-										</div>
-									</th>
-									<td className="s1"></td>
-									<td className="s1"></td>
-									<td className="s1"></td>
-									<td className="s1"></td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td className="s1"></td>
-								</tr>
-								<tr>
-									<th
-										id="126933298R48"
-										//style="height: 20px;"
-										className="row-headers-background"
-									>
-										<div
-											className="row-header-wrapper" /*style="line-height: 20px"*/
-										>
-											49
-										</div>
-									</th>
-									<td className="s1"></td>
-									<td className="s1"></td>
-									<td className="s1"></td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td className="s1"></td>
-								</tr>
-								<tr /*style="height: 20px"*/>
-									<th
-										id="126933298R49"
-										//style="height: 20px;"
-										className="row-headers-background"
-									>
-										<div
-											className="row-header-wrapper" /*style="line-height: 20px"*/
-										>
-											50
-										</div>
-									</th>
-									<td className="s1"></td>
-									<td className="s1"></td>
-									<td className="s1"></td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td className="s1"></td>
 								</tr>
 							</tbody>
 						</table>
@@ -1487,6 +1395,41 @@ export function BalanceSheetGen() {
 					<script type="text/javascript" src="script.js"></script>
 				</>
 			</div>
+			<ButtonGroup className={Style.actBtngrp}>
+				<OverlayTrigger
+					key="top"
+					placement="top"
+					overlay={<Tooltip>Generate .pdf</Tooltip>}
+				>
+					<Button
+						className={Style.genBut}
+						variant="secondary"
+						onClick={createAndDownloadPdf}
+					>
+						Generate
+					</Button>
+				</OverlayTrigger>
+				<OverlayTrigger
+					key="top"
+					placement="top"
+					overlay={<Tooltip>Save to Database</Tooltip>}
+				>
+					<Button
+						className={Style.genBut}
+						variant="secondary"
+						onClick={saveToDb}
+					>
+						Save
+					</Button>
+				</OverlayTrigger>
+				{/* <OverlayTrigger
+							key="top"
+							placement="top"
+							overlay={<Tooltip>Save in database</Tooltip>}
+						>
+							<Button className={Style.genBut}>Save</Button>
+						</OverlayTrigger> */}
+			</ButtonGroup>
 		</div>
 	);
 }

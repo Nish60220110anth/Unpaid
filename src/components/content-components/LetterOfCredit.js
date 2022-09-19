@@ -11,6 +11,8 @@ import { saveAs } from "file-saver";
 
 const FILE_NAME = "loc.pdf";
 const PORT = 4000;
+const routerRouteDB = "data/loc";
+const routerRoutePDF = "util/pdf/loc";
 
 export function LetterOfCredit() {
 	const formik = useFormik({
@@ -27,12 +29,31 @@ export function LetterOfCredit() {
 		},
 	});
 
+	var uniqueId = 0;
+
+	const saveStateinDB = (event) => {
+		axios
+			.post(
+				`http://localhost:${PORT}/${routerRouteDB}/${uniqueId}`,
+				formik.values
+			)
+			.then((value) => {
+				console.log(`Posted ${value}`);
+				uniqueId++;
+			})
+			.catch((err) => {
+				console.log(`Error : ${err}`);
+			});
+	};
+
 	const createAndDownloadPdf = (event) => {
 		axios
-			.post(`http://localhost:${PORT}/loc/create`, formik.values)
+			.post(`http://localhost:${PORT}/${routerRoutePDF}`, formik.values)
 			.then(() => {
 				axios
-					.get(`http://localhost:${PORT}/loc/get`, { responseType: "blob" })
+					.get(`http://localhost:${PORT}/${routerRoutePDF}`, {
+						responseType: "blob",
+					})
 					.then((res) => {
 						const pdfblob = new Blob([res.data], { type: "application/pdf" });
 						saveAs(pdfblob, `${FILE_NAME}.pdf`);
@@ -197,13 +218,19 @@ export function LetterOfCredit() {
 								Generate
 							</Button>
 						</OverlayTrigger>
-						{/* <OverlayTrigger
+						<OverlayTrigger
 							key="top"
 							placement="top"
 							overlay={<Tooltip>Save in database</Tooltip>}
 						>
-							<Button className={Style.genBut}>Save</Button>
-						</OverlayTrigger> */}
+							<Button
+								className={Style.genBut}
+								variant="secondary"
+								onClick={saveStateinDB}
+							>
+								Save
+							</Button>
+						</OverlayTrigger>
 					</ButtonGroup>
 				</div>
 			</section>
