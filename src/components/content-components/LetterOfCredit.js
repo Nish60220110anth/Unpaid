@@ -9,7 +9,7 @@ import axios from "axios";
 import "jspdf-autotable";
 import { saveAs } from "file-saver";
 
-const FILE_NAME = "loc.pdf";
+const FILE_NAME = "loc";
 const PORT = 4000;
 const routerRouteDB = "data/loc";
 const routerRoutePDF = "util/pdf/loc";

@@ -28,8 +28,8 @@ export function HEFARequest() {
 	const HEFA_ID_Max = 100000;
 	const PASS_MIN = 8;
 	const PASS_MAX = 20;
-	const AMOUNT_MAX = 200;
-	const AMOUNT_MIN = 10;
+	const AMOUNT_MAX = 20000000;
+	const AMOUNT_MIN = 50000;
 	var myformik;
 
 	const validationSchema = Yup.object({
@@ -51,8 +51,11 @@ export function HEFARequest() {
 		amount: Yup.number()
 			.required("Amount is required")
 			.typeError("Amount must be number")
-			.max(AMOUNT_MAX, `What your going to do with ${AMOUNT_MAX} lakhs money ?`)
-			.min(AMOUNT_MIN, "In my childhood , i had more money than you - haha"),
+			.max(AMOUNT_MAX, `Amount exceeds ${AMOUNT_MAX} .`)
+			.min(
+				AMOUNT_MIN,
+				`Minimum amount not supported . Amount is lesser than ${AMOUNT_MIN} `
+			),
 	});
 
 	const initialValues = {
@@ -334,7 +337,7 @@ export function HEFARequest() {
 																>
 																	<Form.Control
 																		type="text"
-																		placeholder="enter amount here(in lakhs)"
+																		placeholder="enter amount here(in )"
 																		name="amount"
 																		onChange={handleChange}
 																		value={values.amount}
@@ -364,9 +367,12 @@ export function HEFARequest() {
 																				Amount More help
 																			</Popover.Header>
 																			<Popover.Body>
-																				If your not able to understand , that
-																				amount denotes the amount of money you
-																				need , better please die
+																				Amount field here denotes the amount of
+																				money you require but don't expect it as
+																				what you get . Minimum supported money
+																				is <strong>{AMOUNT_MIN}</strong> and Max
+																				supported is{" "}
+																				<strong>{AMOUNT_MAX}</strong>.
 																			</Popover.Body>
 																		</Popover>
 																	}
@@ -437,11 +443,14 @@ export function HEFARequest() {
 									</Accordion.Item>
 									<Accordion.Item eventKey="2">
 										<Accordion.Header>Range of loan provided</Accordion.Header>
-										<Accordion.Body>Some Range</Accordion.Body>
+										<Accordion.Body>
+											Range is <strong>{AMOUNT_MIN} </strong> to{" "}
+											<strong>{AMOUNT_MAX} </strong>
+										</Accordion.Body>
 									</Accordion.Item>
 									<Accordion.Item eventKey="3">
 										<Accordion.Header>
-											When should apply for this money
+											When should one apply for this money
 										</Accordion.Header>
 										<Accordion.Body>Anytime bro</Accordion.Body>
 									</Accordion.Item>
@@ -487,3 +496,5 @@ export function HEFARequest() {
 		</div>
 	);
 }
+
+// main rebase
