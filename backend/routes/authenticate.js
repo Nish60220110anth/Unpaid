@@ -3,7 +3,6 @@ const express = require("express");
 const cors = require("cors");
 const bodyparser = require("body-parser");
 const cookieParser = require("cookie-parser");
-// authenticateRouter.use(express.static(path.join(__dirname, "public")));
 
 const FILE_NAME = "authenticate.js"
 const ROUTER_NAME = "authRouter"
