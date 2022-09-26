@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, Form } from "react-bootstrap";
+import Style from "./../modules/HostelFeeChallan.module.css"
 import axios from "axios";
 import "jspdf-autotable";
 import { ButtonGroup, OverlayTrigger, Tooltip } from "react-bootstrap";
@@ -33,8 +34,15 @@ export function HostelFeeChallan() {
 			});
 	};
   return (
-    <div>
-      <form>
+	<div className={Style.forSection}>
+	<section>
+		<div className={Style.register}>
+			<div className={Style.forHead}>
+				<h1>FEE CHALLAN</h1>
+			</div>
+			<div className={Style.col1}>
+				{/* <h2>Letter Of Credit</h2> */}
+				<form>
 							<div>
 								<label htmlFor="Name">Name</label>
 								<input
@@ -110,5 +118,8 @@ export function HostelFeeChallan() {
 					</ButtonGroup>
 				</div>
     </div>
+	</div>
+			</section>
+		</div>
   );
 }
