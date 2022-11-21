@@ -4,10 +4,11 @@ We have implemented this web application using MERN stack.
 Installation Instructions:
 1) Clone the repository using the link https://github.com/Nish60220110anth/Unpaid.git
 2) cd into the Unpaid folder
-3) npm install
-4) run "npm start".
-5) open another terminal and run "cd backend/"
-6) run "nodemon start"
+3) cd into frontend
+4) npm install
+5) run "npm start".
+6) open another terminal and run "cd backend/"
+7) run "nodemon start"
 
 Our web application has the following functionalities
 
