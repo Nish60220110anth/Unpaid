@@ -7,7 +7,7 @@ Installation Instructions:
 3) npm install
 4) run "npm start".
 5) open another terminal and run "cd backend/"
-6) run "nodmon start"
+6) run "nodemon start"
 
 Our web application has the following functionalities
 
