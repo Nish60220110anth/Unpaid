@@ -1,40 +1,61 @@
+# Unpaid
+
+## Dsecription
 We have worked on the module of Finance,Accounts and Audit(part1 of IIT-TIRUPATI's erp system requirements) as part of the course CS3105.
-We have implemented this web application using MERN stack.
 
-Installation Instructions:
-1) Clone the repository using the link https://github.com/Nish60220110anth/Unpaid.git
-2) cd into the Unpaid folder
-3) npm install
-4) simulatanesouly run "npm start" and "nodemon start" using two terminals. 
+## Installation Instructions:
 
+### Run frontend
 
+1) Clone the repository using the link `https://github.com/Nish60220110anth/Unpaid.git` or click here to download as zip [link](https://github.com/Nish60220110anth/Unpaid/archive/refs/heads/main.zip)
+2) `cd` into the `Unpaid/frontend` folder
+3) Install dependencies using your favourite package manager (i.e command for yarn `yarn` or   npm `npm install`)
+4) Run `yarn dev` or `npm run start`
 
-Our web application has the following functionalities
+### Run Backend
 
-1)HEFA requests
-Description:
-This is a new concept in IITs. Being 3G IIT, Principal Repayment and Interest
-payments are being given as Grants from MOE. System shall generate HEFA
+1) Clone the repository using the link `https://github.com/Nish60220110anth/Unpaid.git` or click here to download as zip [link](https://github.com/Nish60220110anth/Unpaid/archive/refs/heads/main.zip)
+2) `cd` into the `Unpaid/backend` folder
+3) Install dependencies using your favourite package manager (i.e command for yarn `yarn` or   npm `npm install`)
+4) Run `nodemon start`
+
+## Functionalities
+
+### 1)HEFA requests
+
+*Description*
+
+This is a new concept in IITs. Being 3G IIT, Principal Repayment and Interest payments are being given as Grants from MOE. System shall generate HEFA
 Disbursement Request based on the inputs and shall capture the payments
 made by HEFA again based on the inputs, calculation of quarterly interest,
-separate ledgers for Civil Works and Capital Equipment which would be given
-in detailed manner.
+separate ledgers for Civil Works and Capital Equipment which would be given in detailed manner.
 
-2)Income sheet generator
-Description:
-Institute can generate the income sheet and even print them.
+### 2)Income sheet generator
 
-3)Balance sheet generator
-Description:
-Institute can generate the balance sheet and even print them.
+*Description:*
 
-4)Letter of Credit
-Description:
-Letter of Credits to be generated for the Imports for both Institute Account and
-Project Accounts in the formats prescribed by various Banks.
+Institute can generate the income sheet and  print as pdf with customizable template.
 
-5)Annual Budegt Generation:
-Description:
+**Note** Pdf generation is done in backend, no overhead is added on frontend. Copy of the generated pdf is stored in backend for ever.
+
+### 3)Balance sheet generator
+
+*Description:* 
+
+Institute can generate the income sheet and  print as pdf with customizable template.
+
+**Note** Pdf generation is done in backend, no overhead is added on frontend. Copy of the generated pdf is stored in backend for ever.
+
+### 4)Letter of Credit
+
+*Description:*
+
+Letter of Credits to be generated for the imports for both institute account and project accounts in the formats prescribed by various Banks.
+
+### 5)Annual Budegt Generation:
+
+*Description:*
+
 Budget has to be prepared in two stages, Annual Budget Estimates to be
 submitted for the next Financial Year and Revised Estimates for the current
 financial year. The Budget formats prescribed by MOE to be followed, for
@@ -44,8 +65,10 @@ quarter duly indicating expenditure as at the end of the quarter. Ability to
 provide capital expenditure and operational expenditure for every financial
 year.
 
-6)Pay roll
-Description:
+### 6)Pay roll
+
+*Description:*
+
 Pay roll is one of the most important module in Accounts. Individual Masters
 with all relevant data viz., date of joining to date of retirement, increment date,
 amount, postponement if any due to Extraordinary leave and Dies-non to be
@@ -68,30 +91,53 @@ data to Appointment order and Joining Report. As and when any arrears are
 paid as part of emoluments reckoned to calculate NPS, NPS arrears have to be
 calculated automatically by the system.
 
-7)Hostel Check-In and Check-Out:
-Description:
+### 7)Hostel Check-In and Check-Out:
+
+*Description:*
+
 Students will enter their check-in and check-out details.Based on this
 information reimbursment will be caluclated and can be transferred back
 to the student's account.
 
-8)Challan generation:
-Description:
+### 8)Challan generation:
+
+*Description:*
+
 Students will enter their details and enter the amount to be paid.Based on
-these details,challan will be generated.This challan is required to pay the fee.
+these details,challan will be generated. Challan is mandatory to pay the fee.
 
-9)Ledgers:
-Description:
-The system is expected to manage General Ledger Masters and General
-Ledger Reports.
+### 9)Ledgers:
 
-Contributions:
+*Description:*
 
--Nishanth: Managing and maintenance of HEFA requests module, Detailed Ledgers management module and the backend for most of the modules.
+The system manages general ledger masters and general ledger reports.
 
--Sidhant: Letter of Credits template generation module, Annual Budget maintenance module and storing in databases along with some visualization of data.
+## Contributions:
 
--Devansh: Payroll and employee details management module, some of the frontend related modules.
+**<ins>Nishanth</ins>**
 
--Lithesh: Income sheet generation module, Balance sheet reports generation module along with generating pdfs and storing in the databases.
+Managing and maintenance of HEFA requests module, Detailed Ledgers management module and the backend modules + extra microservices on backend.
 
--Saranya: Hostell and Mess Fee Challan generation along with storing the data in databases
+**<ins>Sidhant</ins>**
+
+Letter of Credits template generation module, Annual Budget maintenance module and storing in databases along with some visualization of data.
+
+**<ins>Devansh</ins>**
+
+Payroll and employee details management module, some of the frontend related modules.
+
+**<ins>Lithesh</ins>**
+
+Income sheet generation module, Balance sheet reports generation module along with generating pdfs and storing in the databases.
+
+**<ins>Saranya</ins>**
+
+Hostell and Mess Fee Challan generation along with storing the data in databases
+
+<hr />
+
+## Other Note
+
+This is our first full stack project, in fact it is our first web project.Thus, many usual industry or best conventions are not followed.
+
+Tech stack required to build the project is learned on fly
